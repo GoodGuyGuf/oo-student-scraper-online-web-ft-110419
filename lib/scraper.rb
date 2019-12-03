@@ -35,7 +35,6 @@ end
 
         elsif  element.attr('href').end_with?("com/")
           students[:blog] = element.attr("href")
-binding.pry
         end
       end
       students[:profile_quote] = doc.css(".profile-quote").text
