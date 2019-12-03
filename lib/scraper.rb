@@ -12,7 +12,7 @@ class Scraper
 
       {:name => student.css("h4").text,
       :location => student.css("p").text,
-      :profile_url => student.css("a").first["href"]
+      :profile_url => student.css("a").first["href"]}
 
   end
 end
