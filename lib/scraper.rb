@@ -12,8 +12,8 @@ class Scraper
 
       {:name => student.css("h4").text,
       :location => student.css("p").text,
-      :profile_url => student.css("a").first("href")}
-
+      :profile_url => student.attr('href')}
+pry
   end
 end
 
@@ -41,7 +41,7 @@ end
       return_hash[:profile_quote] = doc.css(".profile-quote").text
       return_hash[:bio] = doc.css(".description-holder p").text
       return_hash
-      #binding.pry
+      binding.pry
     end
 
 end
