@@ -12,7 +12,7 @@ class Scraper
 
       {:name => student.css("h4").text,
       :location => student.css("p").text,
-      :profile_url => student.css('a.href')}
+      :profile_url => student.css('href a')}
 #binding.pry
   end
 end
