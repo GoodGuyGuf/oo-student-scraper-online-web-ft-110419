@@ -21,9 +21,9 @@ end
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
     return_hash = {}
-      social = doc.css(".vitals-container .social-icon-container a")
-binding.pry
-      social.each do |element|
+      profile = doc.css(".vitals-container .social-icon-container a")
+
+      profile.each do |element|
         if element.attr('href').include?("twitter")
           return_hash[:twitter] = element.attr("href")
 
