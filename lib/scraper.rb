@@ -37,6 +37,7 @@ end
           students[:blog] = element.attr("href")
         end
       end
+
       students[:profile_quote] = doc.css(".profile-quote").text
       students[:bio] = doc.css(".description-holder p").text
       students
