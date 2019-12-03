@@ -20,27 +20,27 @@ end
   def self.scrape_profile_page(profile_url)
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    return_hash = {}
+    students = {}
       profile = doc.css(".vitals-container .social-icon-container a")
 
       profile.each do |element|
         if element.attr('href').include?("twitter")
-          return_hash[:twitter] = element.attr("href")
+          students[:twitter] = element.attr("href")
 
         elsif  element.attr('href').include?("linkedin")
-          return_hash[:linkedin] = element.attr("href")
+          students[:linkedin] = element.attr("href")
 
         elsif  element.attr('href').include?("github")
-          return_hash[:github] = element.attr("href")
+          students[:github] = element.attr("href")
 
         elsif  element.attr('href').end_with?("com/")
-          return_hash[:blog] = element.attr("href")
+          students[:blog] = element.attr("href")
 
         end
       end
-      return_hash[:profile_quote] = doc.css(".profile-quote").text
-      return_hash[:bio] = doc.css(".description-holder p").text
-      return_hash
+      students[:profile_quote] = doc.css(".profile-quote").text
+      students[:bio] = doc.css(".description-holder p").text
+      students
     end
 
 end
