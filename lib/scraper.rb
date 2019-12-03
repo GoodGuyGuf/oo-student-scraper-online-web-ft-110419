@@ -13,7 +13,7 @@ class Scraper
       {:name => student.css("h4").text,
       :location => student.css("p").text,
       :profile_url => student.attr('href')}
-binding.pry
+#binding.pry
   end
 end
 
@@ -21,7 +21,7 @@ end
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
     return_hash = {}
-      profile_page = doc.css(".vitals-container .social-icon-container a")
+      social = doc.css(".vitals-container .social-icon-container a")
 
       social.each do |element|
         if element.attr('href').include?("twitter")
